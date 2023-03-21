@@ -16,20 +16,20 @@
       </v-col>
     </v-row>
   </v-container>
-  <v-container>
+  <v-container grid-list-lg>
     <v-row justify="center">
-      <v-col cols="12" xs="12">
+      <v-col cols="12" sm="6" md="4" xs="12" v-for="ad in ads" :key="ad.id">
         <v-card>
-          <v-img height="200px"></v-img>
+          <v-img :src="ad.src" height="200px"></v-img>
           <v-card-title primary-title>
             <div>
-              <h3 class="headline mb0">Здесь будет заголовок</h3>
-              <div>Здесь будет описание</div>
+              <h3 class="headline mb0">{{ ad.title }}</h3>
+              <div>{{ ad.desc }}</div>
             </div>
           </v-card-title>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn text>Open</v-btn>
+            <v-btn text :to="'/ad/' + ad.id">Open</v-btn>
             <v-btn raised color="primary">
               Buy
             </v-btn>
@@ -78,11 +78,9 @@ export default {
   }
 }
 </script>
-
-
-<!-- Если использовать секцию <style> с атрибутом scoped, то CSS в ней будет применяться только к элементам текущего компонента. Это похоже на инкапсуляцию стилей в Shadow DOM. Есть некоторые оговорки, но зато не требуется никаких полифилов. Это достигается путём использования PostCSS для преобразования следующего-->
-
-<style scoped> 
+<!-- 
+только к элементам текущего компонента -->
+<style scoped>
 .ad-link {
   position: absolute;
   bottom: 50px;
