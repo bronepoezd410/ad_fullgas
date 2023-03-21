@@ -1,4 +1,5 @@
 <template>
+
   <v-app>
     <v-navigation-drawer app v-model="drawer">
       <v-list-item>
@@ -31,11 +32,13 @@
       </v-toolbar-items>
     </v-app-bar>
     <v-main>
+      <router-view></router-view>
     </v-main>
   </v-app>
 </template>
 
 
+  
 
 <script>
 export default {
