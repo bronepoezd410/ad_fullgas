@@ -3,7 +3,15 @@
     <v-row justify="center">
       <v-col cols="12" xs="12">
         <v-carousel>
-          <v-carousel-item cover></v-carousel-item>
+          <v-carousel-item v-for="ad in ads"
+  		:key="ad.id"
+  		:src="ad.src" cover>
+    <div class="ad-link">
+  	<v-btn class="error" :to="'/ad/' + ad.id">
+  		{{ ad.title }}
+  	</v-btn>
+  </div>
+  </v-carousel-item>
         </v-carousel>
       </v-col>
     </v-row>
@@ -70,3 +78,19 @@ export default {
   }
 }
 </script>
+
+
+<!-- Если использовать секцию <style> с атрибутом scoped, то CSS в ней будет применяться только к элементам текущего компонента. Это похоже на инкапсуляцию стилей в Shadow DOM. Есть некоторые оговорки, но зато не требуется никаких полифилов. Это достигается путём использования PostCSS для преобразования следующего-->
+
+<style scoped> 
+.ad-link {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  background: rgb(0, 0, 0, 0.5);
+  transform: translate(-50%, 0);
+  padding: 5px 15px;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+</style>
