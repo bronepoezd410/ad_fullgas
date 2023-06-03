@@ -65,6 +65,7 @@ export default {
         isOwner() {
             return this.ad.ownerId === this.$store.getters.user.id
         }
+        
     }
 }
 </script>
