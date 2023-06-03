@@ -14,11 +14,9 @@ class Order {
             orders: []
         },
         mutations: {
-            mutations: {
-    createOrder(state, payload){
-    state.orders.push(payload)
-    },
-    },
+            createOrder(state, payload){
+            state.orders.push(payload)
+            },
         },
         actions: {
             async createOrder({commit},{name, phone, adId, userId}) {
@@ -42,5 +40,10 @@ class Order {
             }
         }
     },
-        getters: {}
+        getters: {
+            orders (state, getters) {
+            if (getters.user == null) return []
+            return state.orders.filter(order => order.userId == getters.user.id)
+            }
+        }
     }
