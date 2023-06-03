@@ -70,7 +70,7 @@ export default {
                 await promise.then(() => {
                     commit('setLoading', false)
                     commit('setError', 'Ошибка логина или пароля')
-                    throw 'Упс... Ошибка логина или пароля'
+                    throw 'Упс.... Ошибка логина или пароля'
                 })
             }
         }
