@@ -5,7 +5,7 @@ import shared from './shared'
 
 const store = createStore({
 modules:{
-ads, user
+    ads, user, shared
 }
 })
 

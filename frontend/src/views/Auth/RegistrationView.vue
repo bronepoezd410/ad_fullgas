@@ -19,13 +19,12 @@
                     </v-card-text>
                     <v-card-actions>
                         <v-spacer></v-spacer>
-                        <v-btn color="primary" @click="onSubmit" :loading="loading"
-                        :disabled="!valid || loading">
+                        <v-btn color="primary" @click="onSubmit" :loading="loading" :disabled="!valid || loading">
                             Create Account
                         </v-btn>
                     </v-card-actions>
                 </v-card>
-                </v-col>
+            </v-col>
         </v-row>
     </v-container>
 </template>
@@ -64,7 +63,7 @@ export default {
                     password: this.password
                 }
                 this.$store.dispatch('registerUser', user)
-                .then(() => {
+                    .then(() => {
                         this.$router.push("/")
                     })
                     .catch((err) => {
