@@ -1,8 +1,8 @@
 <template>
     <v-container>
-        <h1 class="text--secondary mb-3 mt-3">My ads</h1>
-        <v-card v-for="ad in ads" :key="ad.id" class="mx-auto" max-width="1000">
-            <v-row>
+        <h1 class="text--secondary mb-3 mt-3 ">My ads</h1>
+        <v-card v-for="ad in myAds" :key="ad.id" class="mx-auto mb-5" max-width="1000">
+            <v-row class="ma-2">
                 <v-img :src="ad.src" height="175px"></v-img>
                 <v-spacer></v-spacer>
             </v-row>
@@ -24,40 +24,10 @@
 </template>
 <script>
 export default {
-    data() {
-        return {
-            ads: [
-                {
-                    title: "First",
-                    desc: "First Desc",
-                    promo: true,
-                    src: "https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg",
-                    id: "1",
-                },
-                {
-                    title: "Second",
-                    desc: "Second Desc",
-                    promo: true,
-                    src: "https://cdn.vuetifyjs.com/images/carousel/sky.jpg",
-                    id: "2",
-                },
-                {
-                    title: "Third",
-                    desc: "Thitd Desc",
-                    promo: true,
-                    src: "https://cdn.vuetifyjs.com/images/carousel/bird.jpg",
-                    id: "3",
-                },
-                {
-                    title: "Fouth",
-                    desc: "Fouth Desc",
-                    promo: true,
-                    src: "https://cdn.vuetifyjs.com/images/carousel/planet.jpg",
-                    id: "4",
-                },
-            ],
-        };
-    },
+    computed: {
+        myAds() {
+            return this.$store.getters.myAds
+        }
+    }
 };
 </script>
-  

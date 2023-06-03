@@ -24,7 +24,7 @@
                         </v-btn>
                     </v-card-actions>
                 </v-card>
-            </v-col>
+                </v-col>
         </v-row>
     </v-container>
 </template>
